@@ -1,0 +1,9 @@
+{
+    "MarketData": {
+        "BoughtMarkets": []
+    },
+    "CurrenciesData": {
+        "Coins": 5,
+        "Diamonds": 5
+    }
+}

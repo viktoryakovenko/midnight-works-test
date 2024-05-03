@@ -1,4 +1,5 @@
 using Services;
+using Services.SaveLoad;
 using Services.StaticData;
 using System.Collections;
 using UnityEngine;
@@ -15,6 +16,8 @@ public class BootstrapEntryPoint : MonoBehaviour
 
     private IEnumerator InitServices()
     {
+        yield return ServiceLocator.RegisterServiceAsync(new SaveLoadService());
+
         CurrenciesStaticDataService currenciesDataService = new CurrenciesStaticDataService();
         currenciesDataService.LoadCurrencies();
 
