@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e0e8280f013293459606a3d3a4c621c, type: 3}
   m_Name: Weapon
   m_EditorClassIdentifier: 
-  MarketType: 0
+  MarketTypeId: 0
   BaseCost: 100
   UpgradeCost: 0
   BaseTime: 0
   CurrentLevel: 0
-  Prefab: {fileID: 0}
+  Prefab: {fileID: 1881795171969133157, guid: 6eef9e580c001db45934a1ce61d95a7b, type: 3}

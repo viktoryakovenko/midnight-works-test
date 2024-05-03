@@ -1,8 +1,8 @@
-using StaticData;
+using StaticData.Markets;
 
-namespace Services 
+namespace Services.StaticData
 {
-    public interface IStaticDataService
+    public interface IMarketsStaticDataService
     {
         MarketStaticData ForMarket(MarketTypeId marketTypeId);
         void LoadMarkets();

@@ -1,11 +1,11 @@
-using Services;
+using StaticData.Markets;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-namespace StaticData
+namespace Services.StaticData
 {
-    public class StaticDataService : IStaticDataService
+    public class MarketsStaticDataService : IMarketsStaticDataService
     {
         private Dictionary<MarketTypeId, MarketStaticData> _markets;
 

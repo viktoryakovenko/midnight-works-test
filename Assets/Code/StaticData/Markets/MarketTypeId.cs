@@ -1,4 +1,4 @@
-﻿namespace StaticData
+﻿namespace StaticData.Markets
 {
     public enum MarketTypeId
     {
@@ -6,6 +6,6 @@
         Fish,
         Meat,
         Vegetables,
-        Bakery
+        Bakery,
     }
 }

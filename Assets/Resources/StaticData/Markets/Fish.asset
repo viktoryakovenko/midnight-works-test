@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e0e8280f013293459606a3d3a4c621c, type: 3}
   m_Name: Fish
   m_EditorClassIdentifier: 
-  MarketType: 1
+  MarketTypeId: 1
   BaseCost: 30
   UpgradeCost: 20
   BaseTime: 6

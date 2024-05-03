@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e0e8280f013293459606a3d3a4c621c, type: 3}
   m_Name: Bakery
   m_EditorClassIdentifier: 
-  MarketType: 4
+  MarketTypeId: 4
   BaseCost: 0
   UpgradeCost: 1
   BaseTime: 3

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace StaticData
+namespace StaticData.Markets
 {
     [CreateAssetMenu(fileName = "MarketData", menuName = "StaticData/Market")]
     public class MarketStaticData : ScriptableObject
