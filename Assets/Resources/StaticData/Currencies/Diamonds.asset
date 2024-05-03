@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Diamonds
   m_EditorClassIdentifier: 
   CurrencyTypeId: 1
-  Amount: 0
+  Amount: 5
   Sprite: {fileID: -942817843, guid: 83825023193405c45a2edbd9770c6cd3, type: 3}

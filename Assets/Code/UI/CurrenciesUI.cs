@@ -1,7 +1,7 @@
 using Services;
+using Services.PersistentProgress;
 using Services.StaticData;
 using StaticData.Currencies;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace UI
@@ -11,7 +11,8 @@ namespace UI
         [SerializeField] private CurrencyPresenter _coinsPresenter;
         [SerializeField] private CurrencyPresenter _diamondsPresenter;
 
-        private CurrenciesStaticDataService _currenciesService;
+        private ICurrenciesStaticDataService _currenciesService;
+        private IPersistentProgressService _persistentDataService;
 
         private void Start()
         {
@@ -20,7 +21,8 @@ namespace UI
 
         public void Initialize()
         {
-            _currenciesService = ServiceLocator.GetService<CurrenciesStaticDataService>();
+            _persistentDataService = ServiceLocator.GetService<IPersistentProgressService>();
+            _currenciesService = ServiceLocator.GetService<ICurrenciesStaticDataService>();
 
             SetUpPresenter(CurrencyTypeId.Coins, _coinsPresenter);
             SetUpPresenter(CurrencyTypeId.Diamonds, _diamondsPresenter);
@@ -28,10 +30,11 @@ namespace UI
 
         private void SetUpPresenter(CurrencyTypeId currencyTypeId, CurrencyPresenter presenter)
         {
-            var currencyData = _currenciesService.ForCurrency(currencyTypeId);
+            var amount = _persistentDataService.Progress.CurrenciesData.Currencies[currencyTypeId];
+            var sprite = _currenciesService.ForCurrency(currencyTypeId).Sprite;
 
-            presenter.SetAmount(currencyData.Amount);
-            presenter.SetSprite(currencyData.Sprite);
+            presenter.SetAmount(amount);
+            presenter.SetSprite(sprite);
         }
     }
 }

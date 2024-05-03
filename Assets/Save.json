@@ -3,7 +3,15 @@
         "BoughtMarkets": []
     },
     "CurrenciesData": {
-        "Coins": 5,
-        "Diamonds": 5
+        "Currencies": {
+            "keys": [
+                0,
+                1
+            ],
+            "values": [
+                10,
+                100
+            ]
+        }
     }
 }

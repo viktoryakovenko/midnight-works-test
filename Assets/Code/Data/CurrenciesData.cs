@@ -1,3 +1,4 @@
+using StaticData.Currencies;
 using System;
 
 namespace Data
@@ -5,7 +6,6 @@ namespace Data
     [Serializable]
     public class CurrenciesData
     {
-        public int Coins;
-        public int Diamonds;
+        public SerializableDictionary<CurrencyTypeId, int> Currencies;
     }
 }

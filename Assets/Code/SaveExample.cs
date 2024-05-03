@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class SaveExample : MonoBehaviour
 {
-    private SaveLoadService _saveLoadService;
+    private ISaveLoadService _saveLoadService;
 
     private void Start()
     {
-        _saveLoadService = ServiceLocator.GetService<SaveLoadService>();
+        _saveLoadService = ServiceLocator.GetService<ISaveLoadService>();
     }
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.S))
-            _saveLoadService.SaveToJson();
+            _saveLoadService.SaveProgress();
     }
 }
