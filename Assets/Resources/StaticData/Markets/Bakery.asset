@@ -17,4 +17,5 @@ MonoBehaviour:
   UpgradeCost: 1
   BaseTime: 3
   CurrentLevel: 1
+  BaseIncome: 1
   Prefab: {fileID: 3102235111441439032, guid: c3f576fec9299524b91ef6107359f09e, type: 3}

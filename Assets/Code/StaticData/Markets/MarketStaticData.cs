@@ -10,6 +10,7 @@ namespace StaticData.Markets
         [Min(0)] public int UpgradeCost;
         [Min(0)] public int BaseTime;
         [Min(0)] public int CurrentLevel;
+        [Min(0)] public int BaseIncome;
         public GameObject Prefab;
     }
 }
