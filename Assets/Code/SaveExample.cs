@@ -11,9 +11,8 @@ public class SaveExample : MonoBehaviour
         _saveLoadService = ServiceLocator.GetService<ISaveLoadService>();
     }
 
-    private void Update()
+    private void OnApplicationQuit()
     {
-        if (Input.GetKeyDown(KeyCode.S))
-            _saveLoadService.SaveProgress();
+        _saveLoadService.SaveProgress();
     }
 }

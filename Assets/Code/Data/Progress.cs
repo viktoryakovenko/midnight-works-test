@@ -5,12 +5,12 @@ namespace Data
     [Serializable]
     public class Progress
     {
-        public MarketData MarketData;
+        public AllMarketsData AllMarketsData;
         public CurrenciesData CurrenciesData;
 
         public Progress()
         {
-            MarketData = new MarketData();
+            AllMarketsData = new AllMarketsData();
             CurrenciesData = new CurrenciesData();
         }
     }

@@ -1,4 +1,5 @@
 using Code.Data;
+using Infrastructure.Factory;
 using Services;
 using Services.PersistentProgress;
 using Services.SaveLoad;
@@ -23,7 +24,10 @@ public class BootstrapEntryPoint : MonoBehaviour
 
         yield return ServiceLocator.RegisterServiceAsync<ISaveLoadService>(new SaveLoadService());
         yield return ServiceLocator.RegisterServiceAsync<IPersistentProgressService>(new PersistentProgressService());
-        
+        yield return ServiceLocator.RegisterServiceAsync<IGameFactory>(new GameFactory(
+            ServiceLocator.GetService<IMarketsStaticDataService>(),
+            ServiceLocator.GetService<IPersistentProgressService>()
+        ));
     }
 
     private IEnumerator RegisterStaticData()
