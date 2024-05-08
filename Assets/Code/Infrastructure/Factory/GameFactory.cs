@@ -23,7 +23,7 @@ namespace Infrastructure.Factory
             MarketStaticData marketData = _marketsDataService.ForMarket(typeId);
             GameObject market = Object.Instantiate(marketData.Prefab, parent.position, marketData.Prefab.transform.rotation, parent);
 
-            Income income = market.GetComponent<Income>();
+            MarketIncome income = market.GetComponent<MarketIncome>();
             income.Initialize(marketData.BaseIncome, marketData.BaseTime);
 
             return market;
