@@ -1,9 +1,6 @@
 ﻿using Data;
-using Logic;
 using Services.PersistentProgress;
 using Services.SaveLoad;
-using StaticData.Currencies;
-using UnityEngine;
 
 namespace Code.Data
 {
@@ -27,8 +24,8 @@ namespace Code.Data
         {
             var progress = new Progress();
 
-            progress.CurrenciesData.Currencies[CurrencyTypeId.Coins] = 10;
-            progress.CurrenciesData.Currencies[CurrencyTypeId.Diamonds] = 50;
+            progress.CurrenciesData.Coins = 0;
+            progress.CurrenciesData.Diamonds = 0;
 
             return progress;
         }

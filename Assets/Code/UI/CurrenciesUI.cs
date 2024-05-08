@@ -1,7 +1,6 @@
 using Services;
-using Services.PersistentProgress;
-using Services.StaticData;
-using StaticData.Currencies;
+using Services.Bank;
+using System;
 using UnityEngine;
 
 namespace UI
@@ -11,30 +10,41 @@ namespace UI
         [SerializeField] private CurrencyPresenter _coinsPresenter;
         [SerializeField] private CurrencyPresenter _diamondsPresenter;
 
-        private ICurrenciesStaticDataService _currenciesService;
-        private IPersistentProgressService _persistentDataService;
+        private IBankService _bankService;
 
-        private void Start()
+        private void Awake()
         {
+            _bankService = ServiceLocator.GetService<IBankService>();
+
             Initialize();
         }
 
-        public void Initialize()
+        private void OnEnable()
         {
-            _persistentDataService = ServiceLocator.GetService<IPersistentProgressService>();
-            _currenciesService = ServiceLocator.GetService<ICurrenciesStaticDataService>();
-
-            SetUpPresenter(CurrencyTypeId.Coins, _coinsPresenter);
-            SetUpPresenter(CurrencyTypeId.Diamonds, _diamondsPresenter);
+            _bankService.OnCoinsChanged += SetUpCoinsText;
+            _bankService.OnDiamondsChanged += SetUpDiamondsText;
         }
 
-        private void SetUpPresenter(CurrencyTypeId currencyTypeId, CurrencyPresenter presenter)
+        private void OnDisable()
         {
-            var amount = _persistentDataService.Progress.CurrenciesData.Currencies[currencyTypeId];
-            var sprite = _currenciesService.ForCurrency(currencyTypeId).Sprite;
+            _bankService.OnCoinsChanged -= SetUpCoinsText;
+            _bankService.OnDiamondsChanged -= SetUpDiamondsText;
+        }
 
-            presenter.SetAmount(amount);
-            presenter.SetSprite(sprite);
+        private void Initialize()
+        {
+            SetUpCoinsText(_bankService.Coins);
+            SetUpDiamondsText(_bankService.Diamonds);
+        }
+
+        private void SetUpCoinsText(int amount)
+        {
+            _coinsPresenter.SetAmount(amount);
+        }
+
+        private void SetUpDiamondsText(int amount)
+        {
+            _diamondsPresenter.SetAmount(amount);
         }
     }
 }

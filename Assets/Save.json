@@ -7,26 +7,10 @@
         {
             "Id": "_17fbb611-8328-4ba2-a7e7-b823c9c9d8b8",
             "CurrentLevel": 1
-        },
-        {
-            "Id": "Gameplay_5d7ef980-7161-4501-bd9f-f426428a0590",
-            "CurrentLevel": 1
-        },
-        {
-            "Id": "Gameplay_56f44289-a857-4d39-ba1e-5de116391938",
-            "CurrentLevel": 1
         }
     ],
     "CurrenciesData": {
-        "Currencies": {
-            "keys": [
-                0,
-                1
-            ],
-            "values": [
-                50,
-                50
-            ]
-        }
+        "Coins": 10,
+        "Diamonds": 2
     }
 }

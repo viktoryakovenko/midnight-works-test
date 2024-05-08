@@ -1,3 +1,4 @@
+using Services.PersistentProgress;
 using System;
 
 namespace Services.Bank
@@ -13,7 +14,11 @@ namespace Services.Bank
         private int _coins;
         private int _diamonds;
 
-        public BankService() { }
+        public BankService(IPersistentProgressService progressService) 
+        {
+            _coins = progressService.Progress.CurrenciesData.Coins;
+            _diamonds = progressService.Progress.CurrenciesData.Diamonds;
+        }
 
         public void AddCoins(int amount)
         {
