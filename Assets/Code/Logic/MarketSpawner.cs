@@ -1,6 +1,7 @@
 using Data;
 using Infrastructure.Factory;
 using Services;
+using Services.PersistentProgress;
 using StaticData.Markets;
 using UnityEngine;
 
@@ -9,24 +10,24 @@ namespace Logic
     public class MarketSpawner : MonoBehaviour
     {
         public MarketTypeId MarketTypeId;
-        public GameObject BuyButton;
-        public bool Bought => _bought;
+        public GameObject BuyButtonHandler;
 
-        [SerializeField] private bool _bought;
         private string _id;
         private IGameFactory _factory;
+        private Progress _progress;
 
         private void Awake()
         {
             _id = GetComponent<UniqueId>().Id;
             _factory = ServiceLocator.GetService<IGameFactory>();
+            _progress = ServiceLocator.GetService<IPersistentProgressService>().Progress;
 
-            ShowBuyButton();
+            LoadProgress();
         }
 
-        public void LoadProgress(Progress progress)
+        private void LoadProgress()
         {
-            if (progress.AllMarketsData.Markets[_id].CurrentLevel > 0)
+            if (_progress.MarketsData.Find(x => x.Id == _id)?.CurrentLevel > 0)
                 Spawn();
             else
                 ShowBuyButton();
@@ -39,7 +40,8 @@ namespace Logic
 
         private void ShowBuyButton()
         {
-            BuyButton.SetActive(true);
+            GameObject buyButton = Instantiate(BuyButtonHandler, transform);
+            buyButton.GetComponent<BuyButtonHandler>().Initialize(MarketTypeId, transform, _id);
         }
     }
 }

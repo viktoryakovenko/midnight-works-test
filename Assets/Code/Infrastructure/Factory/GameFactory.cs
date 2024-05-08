@@ -18,22 +18,13 @@ namespace Infrastructure.Factory
             _progressService = progressService;
         }
 
-        /*public GameObject CreateNPC(MonsterTypeId typeId, Transform parent)
-        {
-            HeroGameObject = InstantiateRegistered(AssetPath.HeroPath, at.transform.position);
-            return HeroGameObject;
-        }*/
-
         public GameObject CreateMarket(MarketTypeId typeId, Transform parent)
         {
             MarketStaticData marketData = _marketsDataService.ForMarket(typeId);
             GameObject market = Object.Instantiate(marketData.Prefab, parent.position, marketData.Prefab.transform.rotation, parent);
 
-            //int currentLevel = _progressService.Progress.MarketData.
-
-            //Income income = market.GetComponent<Income>();
-            //income.Initialize(marketData.BaseIncome, marketData.BaseTime);
-            Debug.Log("init!");
+            Income income = market.GetComponent<Income>();
+            income.Initialize(marketData.BaseIncome, marketData.BaseTime);
 
             return market;
         }

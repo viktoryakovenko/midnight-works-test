@@ -18,4 +18,4 @@ MonoBehaviour:
   BaseTime: 6
   CurrentLevel: 0
   BaseIncome: 5
-  Prefab: {fileID: 7206603038304466778, guid: 5ed459fa9af3cc54a8803d749f445718, type: 3}
+  Prefab: {fileID: 3740499875128338946, guid: f87a01f6caa348a469d03258dab080f9, type: 3}

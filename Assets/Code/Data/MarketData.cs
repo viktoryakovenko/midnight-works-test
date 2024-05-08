@@ -5,7 +5,7 @@ namespace Data
     [Serializable]
     public class MarketData
     {
-        public bool IsBought;
+        public string Id;
         public int CurrentLevel;
     }
 }

@@ -1,8 +1,9 @@
 ﻿using Data;
+using Logic;
 using Services.PersistentProgress;
 using Services.SaveLoad;
 using StaticData.Currencies;
-using System.Collections.Generic;
+using UnityEngine;
 
 namespace Code.Data
 {
@@ -26,7 +27,6 @@ namespace Code.Data
         {
             var progress = new Progress();
 
-            progress.CurrenciesData.Currencies = new SerializableDictionary<CurrencyTypeId, int>();
             progress.CurrenciesData.Currencies[CurrencyTypeId.Coins] = 10;
             progress.CurrenciesData.Currencies[CurrencyTypeId.Diamonds] = 50;
 

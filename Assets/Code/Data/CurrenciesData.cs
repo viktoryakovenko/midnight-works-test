@@ -7,5 +7,10 @@ namespace Data
     public class CurrenciesData
     {
         public SerializableDictionary<CurrencyTypeId, int> Currencies;
+
+        public CurrenciesData() 
+        {
+            Currencies = new SerializableDictionary<CurrencyTypeId, int>();
+        }
     }
 }
