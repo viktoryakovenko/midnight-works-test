@@ -2,15 +2,19 @@
     "MarketsData": [
         {
             "Id": "_9d338faa-81ac-409d-91f6-cde4f4efaf87",
-            "CurrentLevel": 1
+            "CurrentLevel": 4
         },
         {
             "Id": "_17fbb611-8328-4ba2-a7e7-b823c9c9d8b8",
-            "CurrentLevel": 1
+            "CurrentLevel": 4
+        },
+        {
+            "Id": "Gameplay_5d7ef980-7161-4501-bd9f-f426428a0590",
+            "CurrentLevel": 2
         }
     ],
     "CurrenciesData": {
-        "Coins": 10,
-        "Diamonds": 2
+        "Coins": 86,
+        "Diamonds": 0
     }
 }

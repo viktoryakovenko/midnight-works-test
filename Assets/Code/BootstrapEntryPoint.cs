@@ -23,11 +23,12 @@ public class BootstrapEntryPoint : MonoBehaviour
         yield return RegisterStaticData();
 
         yield return ServiceLocator.RegisterServiceAsync<ISaveLoadService>(new SaveLoadService());
-        yield return ServiceLocator.RegisterServiceAsync<IGameFactory>(new GameFactory(
-            ServiceLocator.GetService<IMarketsStaticDataService>()
-        ));
         yield return RegisterProgressService();
         yield return ServiceLocator.RegisterServiceAsync<IBankService>(new BankService(
+            ServiceLocator.GetService<IPersistentProgressService>()
+        ));
+        yield return ServiceLocator.RegisterServiceAsync<IGameFactory>(new GameFactory(
+            ServiceLocator.GetService<IMarketsStaticDataService>(),
             ServiceLocator.GetService<IPersistentProgressService>()
         ));
     }

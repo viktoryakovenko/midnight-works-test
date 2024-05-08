@@ -5,6 +5,6 @@ namespace Infrastructure.Factory
 {
     public interface IGameFactory
     {
-        GameObject CreateMarket(MarketTypeId typeId, Transform parent);
+        GameObject CreateMarket(MarketTypeId typeId, Transform parent, string id);
     }
 }

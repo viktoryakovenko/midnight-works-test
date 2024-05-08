@@ -35,7 +35,7 @@ namespace Logic
 
         private void Spawn()
         {
-            GameObject market = _factory.CreateMarket(MarketTypeId, transform);
+            GameObject market = _factory.CreateMarket(MarketTypeId, transform, _id);
         }
 
         private void ShowBuyButton()

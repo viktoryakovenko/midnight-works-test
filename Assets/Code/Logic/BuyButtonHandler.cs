@@ -1,7 +1,9 @@
 using Data;
 using Infrastructure.Factory;
 using Services;
+using Services.Bank;
 using Services.PersistentProgress;
+using Services.StaticData;
 using StaticData.Markets;
 using UnityEngine;
 using UnityEngine.UI;
@@ -11,6 +13,7 @@ public class BuyButtonHandler : MonoBehaviour
     [SerializeField] private Button _buyButton;
     private IGameFactory _gameFactory;
     private IPersistentProgressService _progressService;
+    private IBankService _bankService;
     private MarketTypeId _typeId;
     private Transform _marketSpawnPoint;
     private string _marketId;
@@ -19,6 +22,7 @@ public class BuyButtonHandler : MonoBehaviour
     {
         _progressService = ServiceLocator.GetService<IPersistentProgressService>();
         _gameFactory = ServiceLocator.GetService<IGameFactory>();
+        _bankService = ServiceLocator.GetService<IBankService>();
     }
 
     private void OnEnable()
@@ -40,12 +44,25 @@ public class BuyButtonHandler : MonoBehaviour
 
     private void CreateMarket()
     {
-        GameObject market = _gameFactory.CreateMarket(_typeId, _marketSpawnPoint);
+        InitMarketData();
+        HandleBank();
+
+        _gameFactory.CreateMarket(_typeId, _marketSpawnPoint, _marketId);
+
+        Destroy(gameObject);
+    }
+
+    private void InitMarketData()
+    {
         MarketData data = new MarketData();
         data.Id = _marketId;
         data.CurrentLevel = 1;
         _progressService.Progress.MarketsData.Add(data);
+    }
 
-        Destroy(gameObject);
+    private void HandleBank()
+    {
+        var marketStaticData = ServiceLocator.GetService<IMarketsStaticDataService>();
+        _bankService.WithdrawCoins(marketStaticData.ForMarket(_typeId).BaseCost);
     }
 }

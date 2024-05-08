@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6370228855701548567}
   - component: {fileID: 8704443974630963963}
+  - component: {fileID: 6353900230564572225}
   m_Layer: 0
   m_Name: BaseMarket
   m_TagString: Untagged
@@ -42,5 +43,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1f72e9cfdf43f3446892869716437dd1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6353900230564572225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1524269974763294932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a6ffa8c54ec8ce4fa12c4ff672eaa52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
